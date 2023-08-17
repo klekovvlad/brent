@@ -1,0 +1,154 @@
+.footer {
+    padding: 0px 60px 50px;
+    color: #fff;
+    font-size: 16px;
+
+    @media (max-width: 1910px) {
+        padding: 0px 20px 25px;
+    }
+
+    @include mobile {
+        font-size: 12px;
+    }
+
+    &-wrapper {
+        background: $main;
+        border-radius: $radius;
+        padding: 60px;
+
+        @include tablet {
+            padding: 40px 20px;
+        }
+
+        @include mobile {
+            padding: 30px 20px;
+        }
+    }
+
+    &-top {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 60px 0px;
+
+        @media (max-width: 1600px) {
+            flex-wrap: wrap;
+        }
+
+        @include mobile {
+            gap: 30px;
+        }
+    }
+
+    &-inner {
+        display: flex;
+        align-items: start;
+        justify-content: end;
+        gap: 40px;
+
+        @include tablet {
+            justify-content: start;
+            flex-wrap: wrap;
+        }
+
+        @include mobile {
+            gap: 20px;
+        }
+    }
+
+    &-col {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 8px;
+
+        &:first-child {
+            p {
+                white-space: nowrap;
+            }
+        }
+
+        @include tablet {
+            &:last-child {
+                flex-direction: row;
+            }
+        }
+
+        @include mobile {
+            &:last-child {
+                flex-direction: column;
+            }
+        }
+    }
+
+    &-contact {
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        grid-gap: 20px;
+        flex: 0 0 350px;
+
+        @include mobile {
+            flex: 0 0 280px;
+        }
+        img {
+            flex: 0 0 170px;
+            width: 100%;
+
+            @include mobile {
+                flex: 0 0 85px;
+            }
+        }
+    }
+
+    .button {
+        width: 330px;
+        padding: 19px 30px;
+
+        @include mobile {
+            width: 100%;
+            font-size: 14px;
+        }
+    }
+
+    .social-link {
+        img {
+            filter: brightness(0) saturate(100%) invert(99%) sepia(4%) saturate(1444%) hue-rotate(250deg) brightness(117%) contrast(100%);
+        }
+    }
+
+    @include mobile {
+        &-adress {
+            max-width: 200px;
+        }
+    }
+
+    &-bottom {
+        padding: 30px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        a {
+            color: $light;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            gap: 4px;
+
+            a {
+                font-size: 12px;
+            }
+        }
+    }
+}

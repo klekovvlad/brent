@@ -1,0 +1,16 @@
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    .social-link {
+
+        img {
+            width: 54px;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}

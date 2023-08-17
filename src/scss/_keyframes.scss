@@ -1,0 +1,25 @@
+@keyframes show {
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.animation {
+    transition: opacity .5s ease-out, transform .7s ease-out;
+}
+
+.animation-bottom {
+    opacity: 0;
+    transform: translate(0, 100px);
+}
+
+.animation-left {
+    opacity: 0;
+    transform: translate(-100px, 0);
+}
+
+.animation-right {
+    opacity: 0;
+    transform: translate(100px, 0);
+}

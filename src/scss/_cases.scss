@@ -1,0 +1,62 @@
+.cases {
+    &-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+        margin: 0px 0px 60px;
+
+        @include tablet {
+            margin: 0px 0px 30px;
+
+            .slider-buttons {
+                display: none;
+            }
+        }
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+
+    &-item {
+        cursor: pointer;
+        border-radius: $radius;
+        border: 1px solid $border;
+        overflow: hidden;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: $main url('../img/icons/plus.svg') no-repeat center;
+            background-size: 20px 20px;
+            opacity: 0;
+        }
+
+        @media (min-width: 1200px) {
+            &:hover {
+                border: 1px solid $main;
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}

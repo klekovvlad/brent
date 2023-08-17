@@ -1,0 +1,16 @@
+//Sizes
+$tablet: 1249px;
+$mobile: 767px;
+$radius: 40px;
+
+@media (max-width: 1249px) {
+    $radius: 20px !global;
+}
+
+//Colors
+$light: #F4F4F4;
+$main: #173F35;
+$text: #303030;
+$dark_gray: #8C8C8C;
+$border: #DCDCDC;
+$gray: #CACACA;

@@ -1,0 +1,129 @@
+.button {
+    color: #FFFFFF;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    background: $main;
+    border: 1px solid $main;
+    border-radius: 30px;
+    padding: 19px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: max-content;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background .5s linear;
+
+    &:hover {
+        background: #22584B;
+    }
+
+    &:active {
+        color: $main;
+        background: #fff;
+    }
+
+    @include tablet {
+        font-size: 14px;
+    }
+
+    @include mobile {
+        padding: 19px 30px;
+        width: 100%;
+    }
+
+    &::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        background: #FFFFFF;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    &__transparent {
+        color: $main;
+        background: transparent;
+
+        &::after {
+            background: $main;
+        }
+
+        &:hover {
+            color: #FFF;
+            background: $main;
+            &::after {
+                background: #FFF;
+            }
+        }
+    }
+
+    &__white {
+        color: $main;
+        background: #FFFFFF;
+
+        &::after {
+            background: $main;
+        }
+
+        &:hover {
+            color: #FFF;
+            background: #22584B;
+            &::after {
+                background: #FFF;
+            }
+        }
+    }
+}
+
+.slider-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+
+.slider-button {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1px solid $main;
+    background: url('../img/icons/button-arrow.svg') no-repeat center;
+    background-size: contain;
+
+    &.swiper-button-lock {
+        display: none;
+    }
+}
+
+.slider-prev {
+    transform: rotate(180deg);
+}
+
+.question-prev {
+    color: $dark_gray;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.9px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+    line-height: 1;
+
+    &::before {
+        content: '';
+        width: 16px;    
+        height: 26px;
+        background: url('../img/icons/button-prev.svg') no-repeat center;
+        background-size: contain;
+        display: inline-block;
+    }
+
+    &.hide {
+        display: none;
+    }
+}

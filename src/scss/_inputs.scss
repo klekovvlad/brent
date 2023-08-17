@@ -1,0 +1,69 @@
+input[type=text],
+input[type=tel] {
+    padding: 19px 30px;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    line-height: 1;
+    width: 100%;
+
+    @include tablet {
+        font-size: 16px;
+    }
+
+    &::placeholder {
+        color: $gray;
+    }
+
+    &:focus {
+        outline: none;
+        border: 1px solid $main;
+    }
+
+    &.novalid {
+        border: 1px solid #EDAC2E;
+    }
+}
+
+.input {
+    input[type=radio] {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+        padding: 19px 30px;
+        width: 100%;
+        background: #fff;
+        border-radius: 30px;
+        color: $gray;
+
+        @include tablet {
+            font-size: 16px;
+        }
+
+        &::before {
+            flex: 0 0 24px;
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 1px solid $dark_gray;
+            border-radius: 50%;
+        }
+    }
+
+    input[type=radio]:checked ~ label {
+        color: $text;
+
+        &::before {
+            background: url('../img/icons/dotted.svg') no-repeat center;
+            background-size: 14px 14px;
+            border: 1px solid $main;
+        }
+    }
+}

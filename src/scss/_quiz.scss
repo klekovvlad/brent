@@ -1,0 +1,95 @@
+.quiz {
+    .wpcf7 {
+        display: none;
+    }
+    &-box {
+        background: $light;
+        border-radius: $radius;
+        padding: 80px 110px 84px;
+
+        @include tablet {
+            padding: 30px;
+        }
+
+        @include mobile {
+            padding: 30px 20px;
+        }
+    }
+
+    &-wrapper {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        gap: 40px;
+        padding: 50px 0px 0px;
+
+        @media (max-width: 1600px) {
+            grid-template-columns: 1fr;
+        }
+
+        @include tablet {
+            padding: 30px 0px 0px;
+            grid-gap: 20px;
+        }
+    }
+
+    &-slider-inner {
+        overflow: hidden;
+        max-width: max-content;
+    }
+
+    .question {
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    .answers {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            padding: 0px 0px 10px;
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 30px;
+
+        .button {
+            &.disabled {
+                pointer-events: none;
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 1600px) {
+            margin-left: auto;
+        }
+
+        @include tablet {
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @include mobile {
+            width: 100%;
+            flex-direction: column-reverse;
+            align-items: start;
+            .button {
+                width: 100%;
+            }
+        }
+    }
+}

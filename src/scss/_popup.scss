@@ -1,0 +1,113 @@
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+    background: rgba($color: $text, $alpha: .3);
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transition: transform .5s linear, opacity .3s linear;
+
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &-body {
+        opacity: 0;
+        transform: translate(0, 50px);
+        animation: show .5s linear forwards;
+    }
+
+    &-gallery {
+        align-items: start;
+
+        @include mobile {
+            align-items: center;
+        }
+
+        .gallery-slider {
+            height: calc(100vh - 60px);
+            width: min(680px, 95%);
+            background: #fff;
+
+            @include mobile {
+                height: auto;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+    }
+}
+
+@keyframes show {
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.form-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+    background: rgba($color: $text, $alpha: .3);
+    z-index: 10;
+    transition: transform .5s linear, opacity .3s linear;
+    opacity: 0;
+    visibility: hidden;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+
+        .form {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+    }
+
+    .form {
+        max-width: min(940px, 95%);
+        opacity: 0;
+        transform: translate(0, 100px);
+        transition: transform .5s linear, opacity .3s linear;
+
+        @include mobile {
+            padding: 65px 20px;
+        }
+
+        &-close {
+            position: absolute;
+            cursor: pointer;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: url('../img/icons/close.svg') no-repeat center;
+            background-size: contain;
+
+            @include mobile {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    }
+}

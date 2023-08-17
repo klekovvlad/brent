@@ -1,0 +1,34 @@
+.rules {
+    h1 {
+        margin: 0px 0px 50px;
+        word-break: break-word;
+
+        @include tablet {
+            margin: 0px 0px 30px;
+        }
+    }
+
+    h2 {
+        font-size: 18px;
+        @include font(600);
+        margin: 16px 0px;
+        text-transform: none;
+        letter-spacing: normal;
+
+        @include tablet {
+            font-size: 14px;
+            margin: 10px 0px;
+        }
+    }
+
+    p {
+        font-size: 18px;
+        margin: 16px 0px;
+
+        
+        @include tablet {
+            font-size: 14px;
+            margin: 10px 0px;
+        }
+    }
+}

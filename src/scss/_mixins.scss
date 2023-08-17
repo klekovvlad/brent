@@ -1,0 +1,25 @@
+@mixin font($weight) {
+    font-family: Montserrat, sans-serif;
+    font-weight: $weight;
+}
+
+@mixin title() {
+    font-family: Jost, sans-serif;
+    font-weight: 500;
+}
+
+@mixin tablet() {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mobile() {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin lsp() {
+    letter-spacing: 0.8px;
+}
