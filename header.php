@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" href="/favicon.png" type="image/png">
     <?php wp_head();?>
 </head>
 <body>
@@ -19,7 +19,9 @@
 
         <div class="header-nav">
             <div class="header-nav-item">
-                <div class="header-nav-adress"><?php the_field('adress', 7);?></div>
+                <div class="header-nav-adress">
+                    <?php echo getAdress(); ?>
+                </div>
                 <div class="header-nav-adress"><?php the_field('work-times', 7);?></div>
             </div>
             <div class="header-nav-item">

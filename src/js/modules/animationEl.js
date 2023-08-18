@@ -6,7 +6,7 @@ export const AnimationSection = (scroll) => {
     const storySection = document.querySelector('.story');
 
     if(storySection) {
-        const listItems = document.querySelectorAll('li');
+        const listItems = storySection.querySelectorAll('li');
         let delay = 0.5
         listItems.forEach(li => {
             li.style.transitionDelay = `${delay}s`;

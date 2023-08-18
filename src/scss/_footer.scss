@@ -121,11 +121,15 @@
         img {
             filter: brightness(0) saturate(100%) invert(99%) sepia(4%) saturate(1444%) hue-rotate(250deg) brightness(117%) contrast(100%);
         }
-    }
+    }  
 
-    @include mobile {
-        &-adress {
-            max-width: 200px;
+    &-adress {
+        &:first-child {
+            max-width: 280px;
+
+            @include mobile {
+                max-width: 200px;
+            }
         }
     }
 

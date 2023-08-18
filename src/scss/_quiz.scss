@@ -16,6 +16,10 @@
         }
     }
 
+    &-questions {
+        padding: 0px 0px 5px;
+    }
+
     &-wrapper {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -65,6 +69,7 @@
         align-items: start;
         justify-content: start;
         gap: 30px;
+        padding: 0px 0px 5px;
 
         .button {
             &.disabled {

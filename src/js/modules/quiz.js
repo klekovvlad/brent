@@ -19,11 +19,13 @@ export const quiz = () => {
     
             buttons.onclick = (e) => {
                 const quizItemInputs = quizItems[index].querySelectorAll('input');
-                quizItemInputs.forEach(input => {
-                    if(input.type === 'radio') {
-                        input.checked = false;
-                    }
-                })
+                nextButton.classList.add('disabled');
+
+                // quizItemInputs.forEach(input => {
+                //     if(input.type === 'radio') {
+                //         input.checked = false;
+                //     }
+                // })
     
                 if(e.target.dataset.action === 'next') {
                     if(index < quizItems.length - 1) {
@@ -32,17 +34,18 @@ export const quiz = () => {
                 }else if(e.target.dataset.action === 'prev') {
                     if(index > 0) {
                         index--
-                        quizItems[index].querySelectorAll('input').forEach(input => {
-                            if(input.type === 'radio') {
-                                input.checked = false;
-                            }
-                        })
                     }
                 }
+                quizItems[index].querySelectorAll('input').forEach(input => {
+                    if(input.type === 'radio' && input.checked) {
+                        nextButton.classList.remove('disabled')
+                    }
+                })
                 questionSlider.slideTo(index, 500)
                 if(index === quizItems.length - 1) {
                     prevButton.onclick = () => {
-                        nextButton.textContent = 'Следующий вопрос'
+                        nextButton.textContent = 'Следующий вопрос';
+                        nextButton.onclick = () => {};
                     }
                     nextButton.textContent = 'Оставить заявку'
                     nextButton.onclick = () => {
@@ -53,7 +56,7 @@ export const quiz = () => {
                         }
                     };
                 }
-                nextButton.classList.add('disabled');
+                
                 InputListener(index);
                 if(index === 0) {
                     prevButton.classList.add('hide');
@@ -72,11 +75,11 @@ export const quiz = () => {
                         message[input.name] = input.value;
                     }
                 }else if(input.type === 'tel' || input.type === 'text') {
-                    if(input.value.length > 4) {
+                    if(input.value.length >= 1) {
                         nextButton.classList.remove('disabled');
                     }
                     input.oninput = () => {
-                        if(input.value.length > 4) {
+                        if(input.value.length >= 1) {
                             nextButton.classList.remove('disabled');
                             message[input.name] = input.value;
                         }

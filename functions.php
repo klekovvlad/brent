@@ -113,7 +113,9 @@ function getSocialWebLinks() {
 	$linksString = '';
 
 	foreach($links as $link) {
-		$linksString = $linksString . '<a class="social-link" href="' . $link['url'] . '"><img src="' . $link['img']['url'] . '" alt="Иконка"></a>';
+		if($link['url']) {
+			$linksString = $linksString . '<a class="social-link" href="' . $link['url'] . '"><img src="' . $link['img']['url'] . '" alt="Иконка"></a>';
+		}
 	};
 
 	return '<div class="social-links">' . $linksString . '</div>';
@@ -127,6 +129,14 @@ function check($item, $className, $htmlTag) {
 	if($item) {
 		return '<' . $htmlTag . ' class="' . $className . '">' . $item . '</' . $htmlTag . '>';
 	}
+}
+
+function getAdress() {
+	$adress = get_field('adress', 7);
+
+	if($adress['url']) {
+		return '<a target="_blank" href="' . $adress['url'] .'">' . $adress['text'] . '</a>';
+	}else return $adress['text'];
 }
 
 ?>

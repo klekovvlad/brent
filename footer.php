@@ -43,7 +43,7 @@
                         <?php the_field('company', 7);?>
                     </div>
                     <div class="footer-col">
-                        <div class="footer-adress"><?php the_field('adress', 7);?></div>
+                        <div class="footer-adress"><?php echo getAdress(); ?></div>
                         <div class="footer-adress"><?php the_field('work-times', 7);?></div>
                     </div>
                     <div class="footer-col">
