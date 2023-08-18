@@ -8,6 +8,22 @@
     @include tablet {
         padding: 20px 20px 0px;
     }
+
+    &-phone-mobile {
+        display: none;
+
+        @include mobile {
+            display: block;
+            font-size: 8px;
+            font-weight: 600;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 362px) {
+            display: none;
+        }
+    }
     
 
     &-wrapper {
@@ -40,8 +56,8 @@
         max-width: 360px;
 
         @include mobile {
-            flex: 0 0 200px;
-            max-width: 200px;
+            flex: 0 0 180px;
+            max-width: 180px;
             gap: 5px;
         }
 
@@ -55,7 +71,7 @@
             }
 
             @include mobile {
-                font-size: 10px;
+                font-size: 8px;
             }
         }
     }
@@ -105,10 +121,12 @@
 
             @include mobile {
                 display: block;
-                white-space: pre-wrap;
 
-                &:first-child {
+                a {
+                    white-space: pre-wrap;
+                    display: block;
                     max-width: 230px;
+                    text-align: left;
                 }
             }
         }

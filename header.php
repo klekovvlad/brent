@@ -38,6 +38,8 @@
             ?>
         </div>
 
+        <a href="tel:<?php the_field('phone');?>" class="header-phone-mobile"><?php the_field('phone', 7);?></a>
+
         <button class="mobile-nav">
             <span></span><span></span><span></span>
         </button>
