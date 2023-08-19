@@ -112,13 +112,16 @@
         &-contact {
             font-size: 16px;
             white-space: nowrap;
-            transition: color .5s linear;
+            transition: color .5s linear, text-decoration .3s linear;
         }
 
         &-adress {
             @media (min-width: 1200px) {
-                &:hover {
-                    color: $main;
+                &:first-child {
+                    &:hover {
+                        color: $main;
+                        text-decoration: underline;
+                    }
                 }
             }
 
@@ -146,6 +149,7 @@
             @media (min-width: 1200px) {
                 &:hover {
                     color: $main;
+                    text-decoration: underline;
                 }
             }
         }
