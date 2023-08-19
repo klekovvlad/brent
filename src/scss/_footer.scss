@@ -85,6 +85,13 @@
     &-contact {
         font-weight: 600;
         white-space: nowrap;
+        transition: opacity .5s linear;
+
+        @media (min-width: 1200px) {
+            &:hover {
+                opacity: .7;
+            }
+        }
     }
 
     .logo {
@@ -126,6 +133,13 @@
     &-adress {
         &:first-child {
             max-width: 280px;
+            transition: opacity .5s linear;
+
+            @media  (min-width: 1200px) {
+                &:hover{
+                    opacity: .7;
+                }
+            }
 
             @include mobile {
                 max-width: 200px;

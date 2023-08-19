@@ -112,9 +112,16 @@
         &-contact {
             font-size: 16px;
             white-space: nowrap;
+            transition: color .5s linear;
         }
 
         &-adress {
+            @media (min-width: 1200px) {
+                &:hover {
+                    color: $main;
+                }
+            }
+
             @include tablet {
                 display: none;
             }

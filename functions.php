@@ -114,7 +114,7 @@ function getSocialWebLinks() {
 
 	foreach($links as $link) {
 		if($link['url']) {
-			$linksString = $linksString . '<a class="social-link" href="' . $link['url'] . '"><img src="' . $link['img']['url'] . '" alt="Иконка"></a>';
+			$linksString = $linksString . '<a target="_blank" class="social-link" href="' . $link['url'] . '"><img src="' . $link['img']['url'] . '" alt="Иконка"></a>';
 		}
 	};
 
