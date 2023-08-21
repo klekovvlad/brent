@@ -58,11 +58,11 @@ export const InitSwipers = () => {
                     spaceBetween: 20
                 },
                 768: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,
                     spaceBetween: 20
                 },
                 1250: {
-                    slidesPerView: 4,
+                    slidesPerView: 2,
                     spaceBetween: 30
                 },
                 1600: {
@@ -79,13 +79,15 @@ export const InitSwipers = () => {
 
         if(window.innerWidth < 1600) {
             const teamCol = teamSlider.querySelector('.team-col');
-            const teamWrapper = teamSlider.querySelector('.swiper-wrapper');
-            const teamColSlides = [...teamCol.children].reverse();
-            teamColSlides.forEach(slide => {
-                slide.classList.add('swiper-slide')
-                teamWrapper.prepend(slide)
-            })
-            teamWrapper.removeChild(teamCol)
+           if(teamCol) {
+                const teamWrapper = teamSlider.querySelector('.swiper-wrapper');
+                const teamColSlides = [...teamCol.children].reverse();
+                teamColSlides.forEach(slide => {
+                    slide.classList.add('swiper-slide')
+                    teamWrapper.prepend(slide)
+                })
+                teamWrapper.removeChild(teamCol)
+           }
         }
     }
 

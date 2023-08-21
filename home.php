@@ -263,35 +263,48 @@ $forms = get_field('forms');
                     </div>
                 </div>
                 <div class="swiper-wrapper">
-                    <?php $team_index = 0; foreach($team['items'] as $item) { ?>
-                        <?php if($team_index == 0) { ?>
-                            <div class="swiper-slide team-col">
-                                <div class="team-item animation animation-bottom">
+                    <?php if(count($team['items']) > 2) {
+                        $team_index = 0; foreach($team['items'] as $item) { ?>
+                            <?php if($team_index == 0) { ?>
+                                <div class="swiper-slide team-col">
+                                    <div class="team-item team-item__row animation animation-bottom">
+                                        <img src="<?php echo $item['photo']['url'];?>" alt="<?php echo $item['photo']['alt'];?>">
+                                        <div class="team-item-content">
+                                            <div class="team-item-title"><?php echo $item['name'];?></div>
+                                            <?php echo $item['desc'];?>
+                                        </div>
+                                    </div>
+                            <?php } else if($team_index == 1) { ?>
+                                    <div class="team-item team-item__row animation animation-bottom">
+                                        <img src="<?php echo $item['photo']['url'];?>" alt="<?php echo $item['photo']['alt'];?>">
+                                        <div class="team-item-content">
+                                            <div class="team-item-title"><?php echo $item['name'];?></div>
+                                            <?php echo $item['desc'];?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } else { ?>
+                                <div class="team-item swiper-slide animation animation-bottom" >
                                     <img src="<?php echo $item['photo']['url'];?>" alt="<?php echo $item['photo']['alt'];?>">
                                     <div class="team-item-content">
                                         <div class="team-item-title"><?php echo $item['name'];?></div>
                                         <?php echo $item['desc'];?>
                                     </div>
                                 </div>
-                        <?php } else if($team_index == 1) { ?>
-                                <div class="team-item animation animation-bottom">
-                                    <img src="<?php echo $item['photo']['url'];?>" alt="<?php echo $item['photo']['alt'];?>">
-                                    <div class="team-item-content">
-                                        <div class="team-item-title"><?php echo $item['name'];?></div>
-                                        <?php echo $item['desc'];?>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } else { ?>
-                            <div class="team-item swiper-slide animation animation-bottom" >
+                            <?php } 
+                        $team_index++; } 
+                    } else {
+                        foreach($team['items'] as $item) { ?>
+                            <div class="team-item team-item__row swiper-slide animation animation-bottom" >
                                 <img src="<?php echo $item['photo']['url'];?>" alt="<?php echo $item['photo']['alt'];?>">
                                 <div class="team-item-content">
                                     <div class="team-item-title"><?php echo $item['name'];?></div>
                                     <?php echo $item['desc'];?>
                                 </div>
                             </div>
-                        <?php } 
-                    $team_index++; } ?> 
+                        <?php } ?>
+
+                    <?php } ?>
                 </div>
             </section>
         <?php } ?>

@@ -32,8 +32,6 @@
 
         .team-item {
             width: 100%;
-            padding: 25px 30px;
-            flex-direction: row;
         }
     }
 
@@ -50,6 +48,20 @@
         position: relative;
         overflow: hidden; 
         transition: background .3s linear, color .5s linear;
+
+        &__row {
+            flex: 0 0 calc((100% - 30px) / 2);
+            padding: 25px 30px;
+            flex-direction: row;
+
+            @media (max-width: 1400px) {
+                flex-direction: column;
+            }
+
+            @media (max-width: 1600px) {
+                flex: 0 0 auto;
+            }
+        }
 
         &::before {
             content: '';
