@@ -25,6 +25,26 @@ input[type=tel] {
     }
 }
 
+span.novalid-parent {
+    position: relative;
+
+    &::before {
+        content: 'Важно заполнить это поле';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translate(0, calc(100% + 4px));
+        color: #EDAC2E;
+        font-size: 14px;
+        font-weight: 500;
+
+        @include tablet {
+            transform: translate(0, 100%);
+            font-size: 12px;
+        }
+    }
+}
+
 .input {
     input[type=radio] {
         display: none;

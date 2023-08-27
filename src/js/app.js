@@ -49,6 +49,8 @@ const PopupForms = () => {
     })
 
     const popup = document.querySelector('.form-popup');
+    const popupButton = popup.querySelector('button[type=submit]')
+    console.log(popupButton);
     const buttons = document.querySelectorAll('.popup-open');
     if(buttons.length > 0) {
         buttons.forEach(button => {
