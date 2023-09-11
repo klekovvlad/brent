@@ -6,7 +6,7 @@ export const FormListener = () => {
             const input = form.querySelector('input[type=tel]')
             const button = form.querySelector('button[type=submit]')
             button.addEventListener('click', (e) => {
-                if(input.value.length < 16) {
+                if(input && input.value.length < 15) {
                     e.preventDefault();
                     input.classList.add('novalid')
                     input.parentElement.classList.add('novalid-parent');

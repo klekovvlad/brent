@@ -32,7 +32,14 @@ export const PhoneMask = () => {
         phones.forEach(phone => {
             let phoneMask = IMask(
             phone, {
-                mask: '+{7}(000)000-00-00'
+                mask: 'code' + '(000)000-00-00',
+                blocks: {
+                    code: {
+                        mask: IMask.MaskedRange,
+                        from: 7,
+                        to: 8
+                    }
+                }
             });
         })
     }
@@ -49,8 +56,6 @@ const PopupForms = () => {
     })
 
     const popup = document.querySelector('.form-popup');
-    const popupButton = popup.querySelector('button[type=submit]')
-    console.log(popupButton);
     const buttons = document.querySelectorAll('.popup-open');
     if(buttons.length > 0) {
         buttons.forEach(button => {
