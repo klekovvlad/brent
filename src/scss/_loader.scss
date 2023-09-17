@@ -1,0 +1,45 @@
+.loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: $light;
+    z-index: 3;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.0);
+        width: 200px;
+        height: 200px;
+        background: url('../img/icons/loader.svg') no-repeat center;
+        background-size: contain;
+        animation: loader 2s linear infinite;
+
+        @include mobile {
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: translate(-50%, -50%) scale(1.0);
+    }
+    25% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.0);
+    }
+    75% {
+        transform: translate(-50%, -50%) scale(.9);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.0);
+    }
+}

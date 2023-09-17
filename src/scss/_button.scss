@@ -17,6 +17,11 @@
     overflow: hidden;
     transition: background .5s linear;
 
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
     &:hover {
         background: #22584B;
     }
@@ -125,5 +130,21 @@
 
     &.hide {
         display: none;
+    }
+}
+
+.button-prev {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid $gray;
+    background: url('../img/icons/button-prev.svg') no-repeat calc(50% - 2px) 50%;
+    background-size: 50% 50%;
+    display: inline-block;
+
+    @include mobile {
+        width: 54px;
+        height: 54px;
+        flex: 0 0 54px;
     }
 }
