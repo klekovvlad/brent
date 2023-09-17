@@ -6,9 +6,10 @@ import { InitButtonsGallery } from "./modules/gallery.js";
 import { HeroNumbers } from "./modules/heroNumbers.js";
 import { InitSwipers } from "./modules/initSwiper.js";
 import { MapEl } from "./modules/map.js";
+import { setPhoneMask } from "./modules/mask.js";
 import { MobileMenu } from "./modules/mobileMenu.js";
 import { quiz } from "./modules/quiz.js";
-import IMask from "imask";
+import { Survey } from "./modules/survey.js";
 
 setTimeout(() => {
     HeroNumbers();
@@ -23,29 +24,11 @@ FormListener();
 
 const phones = document.querySelectorAll('input[type=tel]');
 
-
-
-export const PhoneMask = () => {
-    const phones = document.querySelectorAll('input[type=tel]')
-    
-    if(phones.length > 0) {
-        phones.forEach(phone => {
-            let phoneMask = IMask(
-            phone, {
-                mask: 'code' + '(000)000-00-00',
-                blocks: {
-                    code: {
-                        mask: IMask.MaskedRange,
-                        from: 7,
-                        to: 8
-                    }
-                }
-            });
-        })
-    }
+if(phones.length > 0) {
+    phones.forEach(phone => {
+        setPhoneMask(phone);
+    })
 }
-
-PhoneMask();
 
 const PopupForms = () => {
     let forms = {}
@@ -85,4 +68,10 @@ PopupForms();
 window.onscroll = () => {
     AnimationEl(window.scrollY)
     AnimationSection(window.scrollY);
+}
+
+const survey = document.querySelector('.survey')
+if(survey) {
+    const surveyElement = new Survey(survey)
+    surveyElement.init();
 }

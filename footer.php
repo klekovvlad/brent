@@ -7,7 +7,7 @@
 
     ?>
 
-    <?php if(!$map['hide'] && $id !== 226) { ?>
+    <?php if(!$map['hide'] && $id !== 226 && $id !== 251) { ?>
         <section class="map">
             <h2 class="animation animation-left"><?php echo $map['title'];?></h2>
             <div class="map-wrapper">

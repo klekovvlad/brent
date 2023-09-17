@@ -50,7 +50,7 @@ export const quiz = () => {
                     nextButton.textContent = 'Оставить заявку'
                     nextButton.onclick = () => {
                         if(inputPhone.value.length > 7) {
-                            send()
+                            sendQuiz(message)
                         }else{
                             inputPhone.classList.add('novalid');
                         }
@@ -99,19 +99,19 @@ export const quiz = () => {
         })
     
         ButtonsListener(questionButtons);
-    
-        const send = () => {
-            const formWrapper = document.querySelector('#wpcf7-f225-o1');
-            const form = formWrapper.querySelector('form');
-            const button = form.querySelector('button[type=submit]')
-            const inputMessage = form.querySelector('input[name=message]');
-            let data = ''
-            for(let key in message) {
-                data = `${data} ${key}: ${message[key]} \n`
-            }
-            inputMessage.value = data;
-            button.click()
-        }
     }
 }
 
+
+export const sendQuiz = (message) => {
+    const formWrapper = document.querySelector('#wpcf7-f225-o1');
+    const form = formWrapper.querySelector('form');
+    const button = form.querySelector('button[type=submit]')
+    const inputMessage = form.querySelector('input[name=message]');
+    let data = ''
+    for(let key in message) {
+        data = `${data} ${key}: ${message[key]} \n`
+    }
+    inputMessage.value = data;
+    button.click()
+}

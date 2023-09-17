@@ -1,0 +1,365 @@
+.survey {
+    &-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-gap: 20px;
+        height: 100%;
+
+        @include tablet {
+            grid-template-columns: 3fr 2fr;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            grid-gap: 10px;
+        }
+    }
+
+    &-content {
+        background: $light;
+        border-radius: $radius;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+        padding: 40px 40px;
+        overflow: hidden;
+        min-height: 600px;
+        position: relative;
+
+        @include tablet {
+            min-height: 500px;
+        }
+
+        @include mobile {
+            min-height: 400px;
+            padding: 30px 20px;
+        }
+
+        &-bottom {
+            border-top: 1px solid $border;
+            padding: 20px 0px 0px;
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 40px;
+
+            @include tablet {
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: start;
+            }
+
+            @include mobile {
+                gap: 14px;
+            }
+        }
+    }
+
+    &-progress {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: start;
+        gap: 16px;
+
+        &-persent {
+            font-size: 14px;
+
+            .value {
+                font-size: 16px;
+                color: $main;
+                font-weight: 700;
+            }
+        }
+
+        &-track {
+            width: 100%;
+            height: 8px;
+            background: $gray;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+
+            &-line {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 100%;
+                background: $main;
+                overflow: hidden;
+                transition: right .5s linear;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+
+        @include tablet {
+            justify-content: center;
+        }
+    }
+
+    &-aside {
+        background: $main;
+        border-radius: $radius;
+        padding: 40px 20px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+
+        @include mobile {
+            padding: 20px;
+            gap: 16px;
+        }
+    }
+
+    &-manager {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 120px 1fr;
+        grid-gap: 10px 20px;
+
+        @include tablet {
+            grid-template-columns: 80px 1fr;
+        }
+
+        &-img {
+            grid-row-start: span 2;
+            aspect-ratio: 1 / 1;
+            position: relative;
+
+            &::after {
+                content: '';
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background: #1CAF53;
+                border: 2px solid #fff;
+                position: absolute;
+                bottom: 12px;
+                right: 12px;
+
+                @include tablet {
+                    bottom: 6px;
+                    right: 6px;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 50%;
+            }
+        }
+
+        &-name {
+            margin-top: auto;
+            font-size: 20px;
+            font-weight: 700;
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+
+        &-profession {
+            margin-bottom: auto;
+            font-size: 14px;
+        }
+
+        &-message {
+            color: $text;
+            padding: 20px;
+            border-radius: 20px;
+            background: #fff;
+            margin-top: 10px;
+            position: relative;
+            margin-bottom: auto;
+
+            @include mobile {
+                margin-top: 0px;
+            }
+
+            &::before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                background: #fff;
+                position: absolute;
+                top: 0;
+                left: 60px;
+                transform: translate(-50%, -50%) rotate(45deg);
+
+                @include tablet {
+                    left: 40px;
+                }
+            }
+        }
+    }
+
+    &-question {
+        font-weight: 700;
+        font-size: 24px;
+        opacity: 0;
+        transform: translate(-50%, 0px);
+        animation: show .5s linear forwards;
+
+        @include mobile {
+            font-size: 18px;
+        }
+    }
+
+    &-answers {
+        display: grid;
+        grid-gap: 20px;
+        padding: 40px 0px;
+
+        @include mobile {
+            padding: 20px 0px;
+            grid-gap: 14px;
+        }
+
+        &.small {
+            grid-template-columns: 1fr;
+        }
+
+        &.medium {
+            grid-template-columns: repeat(2, 1fr);
+
+            @include tablet {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &.large {
+            grid-template-columns: repeat(3, 1fr);
+
+            @include tablet {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+    &-answer {
+        opacity: 0;
+        transform: translate(0px, 50px);
+        animation: show .5s linear forwards;
+
+        &:nth-child(1) {
+            animation-delay: .3s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: .6s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: .9s;
+        }
+
+        &:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+
+        &:nth-child(5) {
+            animation-delay: 1.5s;
+        }
+
+        &:nth-child(6) {
+            animation-delay: 1.8s;
+        }
+
+        input[type=radio] {
+            display: none;
+        }
+
+        input[type=tel],
+        input[type=text] {
+            max-width: 50%;
+
+            @include tablet {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &-gift {
+        &-term {
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0px 0px 16px;
+
+            @include mobile {
+                font-size: 18px;
+                margin: 30px 0px 14px;
+            }
+        }
+
+        &-item {
+            background: $light;
+            border-radius: 20px;
+            padding: 32px;
+            color: $main;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 16px;
+            position: relative;
+            font-size: 18px;
+
+            @include tablet {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            @include mobile {
+                padding: 20px;
+                font-size: 16px;
+            }
+
+            &::after {
+                content: '';
+                width: 40px;
+                height: 40px;
+                background: $main url('../img/icons/lock.svg') no-repeat center;
+                background-size: 24px 24px;
+                border: 2px solid #fff;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                border-radius: 50%;
+            }
+        }
+
+        &-img {
+            img {
+                width: 80px;
+                height: 80px;
+                object-fit: contain;
+                object-position: center;
+
+                @include mobile {
+                    width: 100%;
+                    aspect-ratio: 1 / 1;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+#wpcf7-f225-o1 {
+    display: none;
+}

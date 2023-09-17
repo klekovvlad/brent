@@ -86,4 +86,26 @@ span.novalid-parent {
             border: 1px solid $main;
         }
     }
+
+    &-img {
+        label {
+            flex-wrap: wrap;
+            gap: 20px 10px;
+
+            img {
+                order: -1;
+                flex: 0 0 100%;
+                width: 100%;
+                height: 200px;
+                border-radius: 20px;
+                object-fit: cover;
+                object-position: center;
+
+                @include mobile {
+                    height: 120px;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
 }
