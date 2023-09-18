@@ -20,7 +20,11 @@ export const FormListener = () => {
                 }else {
                     form.addEventListener('wpcf7submit', (e) => {
                         if(e.detail.status === "mail_sent") {
-                            window.location.href = '/thanks'
+                           if(e.detail.contactFormId === 225 && e.target.parentElement.parentElement.classList.contains('survey')) {
+                                window.location.href = '/thanks_survey'
+                           }else{
+                                window.location.href = '/thanks'
+                           }
                         }
                     })
                 }
