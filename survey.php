@@ -60,8 +60,10 @@ function get_img($array, $class) {
             
         </div>
     </section>
+
+    <?php echo do_shortcode('[contact-form-7 id="7d811e1" title="Квиз"]');?>
 </main>
 
-<?php echo do_shortcode('[contact-form-7 id="7d811e1" title="Квиз"]');?>
+
 
 <?php get_footer(); ?>
